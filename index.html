@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Starter Template - Materialize</title>
+  <title>Bootcamp Buddies</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -21,10 +21,20 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+<script type="text/javascript"  src="js/modal.js"></script>
+
 </head>
 <body>
+
+
   <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Bootcamp Buddies</a>
+      <ul class="right hide-on-med-and-down">
+        <button type="button" class="btn btn-primary btn-lg adminbutton" href="admin/index.html">
+          Admin
+        </button>
+      </ul>
+      
       <ul class="right hide-on-med-and-down">
         <li><a href="#">Create a Group</a></li>
       </ul>
@@ -60,20 +70,20 @@
       <br><br>
       <h1 class="header center orange-text">Find A Study Group</h1>
       <div class="row center">
-        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+        <h5 class="header col s12 light">Find a local study group.</h5>
       </div>
         
-    
+<!--     
         <div class="row">
         <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
-          <label for="password">Search events or categories </label>
+          <input id="placecategory" type="text" class="validate">
+          <label for="placecategory">Category (example: cafes)</label>
         </div>
-      </div>
+      </div> -->
       <div class="row">
         <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
-          <label for="email">location or city</label>
+          <input id="placezipcode" type="text" class="validate">
+          <label for="placezipcode">Zip Code (Example: 90036)</label>
         </div>
       </div>
     
@@ -85,9 +95,9 @@
         
 <!-- Single button -->
 <div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<!--   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     All Dates <span class="caret"></span>
-  </button>
+  </button> -->
   <ul class="dropdown-menu">
     <li><a href="#">Today</a></li>
     <li><a href="#">Tomorrow</a></li>
@@ -101,12 +111,49 @@
         
  
       <div class="row center">
-        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Search</a>
+
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Search (Modal)
+</button>
+<br>
+<br> -->
+<button type="button" class="btn btn-primary btn-lg yelpgoogle" href="yelp_google.html">
+  Search
+</button>
+
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width:100%; height:70%;">
+  <div class="modal-dialog" role="document" style="width:100%; height:92%;">
+    <div class="modal-content" style="width:100%; height:80%;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width:100%; height:100%;">
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Bootcamp Buddies Near Me</h4>
+      </div>
+      <div class="modal-body" style="width:100%; height:80%;">
+        <object type="text/html" data="yelp_google.html"
+            style="width:100%; height:100%;">
+        </object>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+ -->
+
+        <!-- <a href="yelp_google.html" data-target="#my_modal" class="btn-large waves-effect waves-light orange" data-toggle="modal" data-id="my_id_value">Search</a> -->
+        <!-- <a href="yelp_google.html" id="download-button" class="btn-large waves-effect waves-light orange">Search</a> -->
       </div>
       <br><br>
 
     </div>
   </div>
+
 
 
   <div class="container">
@@ -183,9 +230,11 @@
 
 
   <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
+  <script type="text/javascript"  src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript"  src="js/materialize.js"></script>
+  <script type="text/javascript"  src="js/init.js"></script>
+
+
 
   </body>
 </html>
