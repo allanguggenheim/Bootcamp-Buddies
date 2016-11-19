@@ -18,7 +18,7 @@ $('button').on("click", function() {
     if ($(this).hasClass("yelpgoogle")){
         // placecategory = $('#placecategory').val().trim();
         placezipcode = $('#placezipcode').val().trim();
-        window.location.href = "yelp_google.html?placecategory=" + placecategory + "&placezipcode=" + placezipcode;
+        window.location.href = "yelp_google.html?placecategory=cafes&placezipcode=" + placezipcode;
     }
    	
     if ($(this).hasClass("adminbutton")){

@@ -7,9 +7,9 @@
     <title>Neighborhood Map</title>
     <link href='https://fonts.googleapis.com/css?family=Lato:100,400,300,700' rel='stylesheet' type='text/css'>
     <link rel="icon" href="http://www.myiconfinder.com/uploads/iconsets/79a6cc671eb7205ea4903436e08851c4-map.png">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="css/sidebar.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="CSS/styles.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link href="assets/css/sidebar.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
   </head>
   
   <body>
@@ -42,6 +42,7 @@
               <td> <img id="yelp-img" src="img/yelp_review_btn_light.png" alt="Yelp Logo"> </td>
             </tr>
           </table>
+            <div id = "matchedUser"></div>
         </div>
       </div>
 
@@ -49,10 +50,11 @@
       </div>
     </div>
 
-  <script src="js/oauth-signature-js-master/dist/oauth-signature.js"></script>
+  <script src="assets/js/oauth-signature-js-master/dist/oauth-signature.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script src="js/libs/knockout-3.2.0.js"></script>
-  <script src="js/map.js"></script>
+  <script src="assets/js/libs/knockout-3.2.0.js"></script>
+  <script src="assets/js/map.js"></script>
+
     
   <script>
     $.getScript( "https://maps.googleapis.com/maps/api/js?key=AIzaSyBYZhMnrpiM4N1p7GfnJf9vVyQVCjk6mNs&callback=initMap" )

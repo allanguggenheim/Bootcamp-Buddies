@@ -8,13 +8,18 @@ $(document).ready(function() {
     };
     firebase.initializeApp(config);
 
-    var database = firebase.database();
+    // var database = firebase.database();
+
+    var database= firebase.database();
+    var students = database.ref();
 
     var id;
 
     var originalAttributes = $("#createUser").attr("class");
 
     var storage = firebase.storage();
+
+
 
 
     $("#password2").on("keyup", function() {
@@ -52,7 +57,7 @@ $(document).ready(function() {
           checkedLanguages.push($(this).val());
         })
         $("input:checkbox[name=interests]:checked").each(function(){
-          interests.push($(this).val());
+          checkedInterests.push($(this).val());
         })
 
         var newUser = {
@@ -73,9 +78,16 @@ $(document).ready(function() {
 
           var id = firebaseUser.uid;
 
-          const dbUser = database.ref().child("users/" + id);
+          // const dbUser = database.ref().child("users/" + id);
           // database.ref(id).set(newUser);
-          dbUser.set(newUser);
+            database.ref().push({
+                newUser,
+                dateAdded: firebase.database.ServerValue.TIMESTAMP
+            });
+          // dbUser.set(newUser);
+
+        window.location.href = "yelp_google.html";
+
       });
 
     });
