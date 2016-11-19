@@ -8,7 +8,10 @@ $(document).ready(function() {
     };
     firebase.initializeApp(config);
 
-    var database = firebase.database();
+    // var database = firebase.database();
+
+    var database= firebase.database();
+    var students = database.ref();
 
     var id;
 
@@ -75,11 +78,15 @@ $(document).ready(function() {
 
           var id = firebaseUser.uid;
 
-          const dbUser = database.ref().child("users/" + id);
+          // const dbUser = database.ref().child("users/" + id);
           // database.ref(id).set(newUser);
-          dbUser.set(newUser);
+            database.ref().push({
+                newUser,
+                dateAdded: firebase.database.ServerValue.TIMESTAMP
+            });
+          // dbUser.set(newUser);
 
-        window.location.href = "yelp_google.html?placecategory=cafes&placezipcode=" + address;
+        window.location.href = "yelp_google.html";
 
       });
 
