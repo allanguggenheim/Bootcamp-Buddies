@@ -302,11 +302,11 @@ function findMiddle() {
 
  // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyAVJTf6lXY2B4y1-ErbYIv92pRYoLQywLQ",
-    authDomain: "study-group-d774f.firebaseapp.com",
-    databaseURL: "https://study-group-d774f.firebaseio.com",
-    storageBucket: "study-group-d774f.appspot.com",
-    messagingSenderId: "128568248931"
+    apiKey: "AIzaSyC1_tDsGAAxrdVQdt4JqsUg8znxe_bPC_k",
+    authDomain: "bootcampbuddies-userform.firebaseapp.com",
+    databaseURL: "https://bootcampbuddies-userform.firebaseio.com",
+    storageBucket: "bootcampbuddies-userform.appspot.com",
+    messagingSenderId: "1072508458086"
   };
   firebase.initializeApp(config);
 
@@ -393,12 +393,12 @@ function findMiddle() {
 
         //Add stored students to the schedule
             //assigning stored student names to a variable
-            student.Name = childSnapshot.val().newstudent.name;
+            student.Name = childSnapshot.val().name;
 
             console.log("found student in db: " + student.Name);
 
-            //Destination
-            student.Dest = childSnapshot.val().newstudent.destination;
+            //address
+            student.Dest = childSnapshot.val().address;
 
 
             console.log("found student zip code in db: " + student.Dest)

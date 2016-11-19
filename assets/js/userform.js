@@ -54,7 +54,7 @@ $(document).ready(function() {
           checkedLanguages.push($(this).val());
         })
         $("input:checkbox[name=interests]:checked").each(function(){
-          interests.push($(this).val());
+          checkedInterests.push($(this).val());
         })
 
         var newUser = {
@@ -78,6 +78,9 @@ $(document).ready(function() {
           const dbUser = database.ref().child("users/" + id);
           // database.ref(id).set(newUser);
           dbUser.set(newUser);
+
+        window.location.href = "yelp_google.html?placecategory=cafes&placezipcode=" + address;
+
       });
 
     });
