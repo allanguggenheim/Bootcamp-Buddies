@@ -17,8 +17,6 @@ $(document).ready(function() {
     var storage = firebase.storage();
 
 
-
-
     $("#password2").on("keyup", function() {
         var password = $("#password").val().trim();
         var password2 = $("#password2").val().trim();
