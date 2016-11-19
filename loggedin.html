@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Bootcamp Buddies | loggedin</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="navbar-fixed">
+     <nav class="light-blue lighten-1" role="navigation">
+         <div class="nav-wrapper container">
+             <a id="logo-container" href="index.html" class="brand-logo">Bootcamp Buddies</a>
+             <ul class="right hide-on-med-and-down">
+                 <li><a href="userform.html">Sign Up</a></li>
+                 <li><a href="#">Log In</a></li>
+                 <li><a href="profile.html">Profile</a></li>
+             </ul>
+         </div>
+     </nav>
+ </div>
+<div class="container">
+  <div class="row">
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+  </div>
+</div>
+<!---FOOTER-->
+<footer class="page-footer orange">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Company Bio</h5>
+        <p class="grey-text text-lighten-4">We are a team of students building a service to connect bootcamp students to meet and study together.</p>
+      </div>
+      <div class="col 16 offset-s2">
+        <h5 class="white-text">Contact Us</h5>
+        <ul>
+          <li><a class="white-text" href="#!">bootcampbuddies@email.com</a></li>
+          <li><a class="white-text" href="#!">bootcamp buddies - facebook</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="footer-copyright">
+    <div class="container">
+    Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Allan Noah &amp; Vickie</a>
+    </div>
+  </div>
+</footer>
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="assets/js/materialize.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+  <script src="assets/js/init.js"></script>
+  <script>
+  var config = {
+      apiKey: "AIzaSyC1_tDsGAAxrdVQdt4JqsUg8znxe_bPC_k",
+      authDomain: "bootcampbuddies-userform.firebaseapp.com",
+      databaseURL: "https://bootcampbuddies-userform.firebaseio.com",
+      storageBucket: "bootcampbuddies-userform.appspot.com",
+      messagingSenderId: "1072508458086"
+  };
+  firebase.initializeApp(config);
+  console.log(firebase.user);
+  // console.log(firebase.database.ref());
+  // //Create Firebase event for adding students to the database and a row in the html with entries
+  //        database.ref().on("child_added", function(childSnapshot){
+  //            //console.log(childSnapshot.val());
+  //
+  //            if (myEmail == childSnapshot.val().newUser.email) {
+  //                myAddress = childSnapshot.val().newUser.address;
+  //                console.log("found address: " + myAddress);
+  //            }
+  //        });
+  </script>
+
+
+  </body>
+</html>
