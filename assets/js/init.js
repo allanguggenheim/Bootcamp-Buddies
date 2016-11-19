@@ -2,7 +2,7 @@
   $(function(){
 
     $('.button-collapse').sideNav();
-
-  }); // end of document ready
+    $('select').material_select();
+});
+   // end of document ready
 })(jQuery); // end of jQuery name space
-
