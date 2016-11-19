@@ -1,6 +1,15 @@
+
+
+
+
 var map;
 var gmarkers = [];
 var myVM;
+
+// alert();
+
+var placezipcode = location.search.split('placezipcode=')[1];
+alert("This will show you study groups near " + placezipcode);
 
 var yelpAuth = {
                 //
@@ -28,6 +37,54 @@ var yelpAuth = {
 //     myVM = new ViewModel();
 //     ko.applyBindings(myVM, document.getElementById("locations"));
 // };
+
+function getLat(zip) {
+        console.log("zip provided is:  " + zip);
+        var geocoder = new google.maps.Geocoder();
+                geocoder.geocode( { 'address': zip}, function(results, status) {
+
+                if (status == google.maps.GeocoderStatus.OK) {
+                    studentLat = results[0].geometry.location.lat();
+                    studentLong = results[0].geometry.location.lng();
+                    console.log("student lat is: " + studentLat);
+                    // console.log("student long is: " + studentLong);
+                    return studentLat;
+                }
+            });
+
+}
+
+function getLong(zip) {
+        var geocoder = new google.maps.Geocoder();
+                geocoder.geocode( { 'address': zip}, function(results, status) {
+
+                if (status == google.maps.GeocoderStatus.OK) {
+                    studentLat = results[0].geometry.location.lat();
+                    studentLong = results[0].geometry.location.lng();
+                    // console.log("student lat is: " + studentLat);
+                    console.log("student long is: " + studentLong);
+                    return studentLong;
+                }
+            });
+
+}
+
+function geocodeAddress(address, callback) {
+
+    var geocoder = new google.maps.Geocoder();
+
+    var latlng = new Array(2);
+
+    geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            latlng[0] = results[0].geometry.location.lat();
+            latlng[1] = results[0].geometry.location.lng();
+            callback(latlng); // call the callback function here
+        } else {
+            console.log("Geocode was not successful for the following reason: " + status);
+        }
+    });
+}
 
 function initMap() {
     findMiddle();
@@ -237,11 +294,37 @@ function findMiddle() {
 
     var geocoder = new google.maps.Geocoder();
     var firstAddress = "17059 albers street";
-    var secondAddress = "8632 longden ave";
+    var secondAddress = placezipcode;
     var firstLatitude;
     var firstLongitude;
     var secondLatitude;
     var secondLongitude;
+
+ // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAVJTf6lXY2B4y1-ErbYIv92pRYoLQywLQ",
+    authDomain: "study-group-d774f.firebaseapp.com",
+    databaseURL: "https://study-group-d774f.firebaseio.com",
+    storageBucket: "study-group-d774f.appspot.com",
+    messagingSenderId: "128568248931"
+  };
+  firebase.initializeApp(config);
+
+    // Referencing the firebase
+    var database= firebase.database();
+    var students = database.ref();
+
+    //Initial values
+    var student = {
+        Name: "",
+        Dest: ""
+    };
+    var studentLat="";
+    var studentLong="";
+
+
+
+
 
     geocoder.geocode( { 'address': firstAddress}, function(results, status) {
 
@@ -277,6 +360,8 @@ function findMiddle() {
     var marker, i;
 
 
+
+
         marker = new google.maps.Marker({
             position: new google.maps.LatLng(firstLatitude, firstLongitude),
             map: map
@@ -301,7 +386,45 @@ function findMiddle() {
         });
 
         // OTHER CODE
-    
+
+    //Create Firebase event for adding students to the database and a row in the html with entries
+        database.ref().on("child_added", function(childSnapshot){
+            //console.log(childSnapshot.val());
+
+        //Add stored students to the schedule
+            //assigning stored student names to a variable
+            student.Name = childSnapshot.val().newstudent.name;
+
+            console.log("found student in db: " + student.Name);
+
+            //Destination
+            student.Dest = childSnapshot.val().newstudent.destination;
+
+
+            console.log("found student zip code in db: " + student.Dest)
+
+            // var studentLat = getLat(student.Dest);
+            // var studentLong = getLong(student.Dest);
+
+geocodeAddress(student.Dest, function(search_latlng) {
+  console.log("the lat long is yo: " + search_latlng);
+
+
+                    // console.log("student lat is still: " + studentLat);
+                    // console.log("student long is still: " + studentLong);
+
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(search_latlng[0], search_latlng[1]),
+                map: map
+            });
+
+                // If any errors are experienced, log them to console.
+            }, function (errorObject) {
+
+                console.log("The read failed: " + errorObject.code);
+            });
+
+});
 
     console.log( "the center lat is: " + bound.getCenter().lat() + " the center long is: " + bound.getCenter().lng() );
 
